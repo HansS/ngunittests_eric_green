@@ -7,6 +7,8 @@ describe("WidgetApp Specs", function() {
 	describe("Constant Specs", constantSpecs);
 
 	// Service Specs
+	describe("Widgets Service Specs", widgetsSvcSpecs);
+	describe("UI Router Service Specs", uiRouterSvcSpecs);
 
 	// Filter Specs
 

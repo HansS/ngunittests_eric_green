@@ -3,38 +3,56 @@
 
 	var baseUrl;
 
+	function getHeaders() {
+		return {
+			"Accept": "application/json",
+			"Sample-Header": "sample value"
+		};
+	}
+
+	function getWidgetsUrl(widgetId) {
+		return (widgetId === undefined) ?
+			baseUrl + "/widgets" :
+			baseUrl + "/widgets/" + encodeURI(widgetId);
+	}
+
 	function widgetSvc($http) {
 		return {
 			insert: function(widget) {
 				return $http({
 					method: "POST",
-					url: baseUrl + "/widgets",
-					data: widget
+					url: getWidgetsUrl(),
+					data: widget,
+					headers: getHeaders()
 				});
 			},
 			update: function(widgetId, widget) {
 				return $http({
 					method: "PUT",
-					url: baseUrl + "/widgets/" + encodeURI(widgetId),
-					data: widget
+					url: getWidgetsUrl(widgetId),
+					data: widget,
+					headers: getHeaders()
 				});
 			},
 			delete: function(widgetId) {
 				return $http({
 					method: "DELETE",
-					url: baseUrl + "/widgets/" + encodeURI(widgetId)
+					url: getWidgetsUrl(widgetId),
+					headers: getHeaders()
 				});
 			},
 			get: function(widgetId) {
 				return $http({
 					method: "GET",
-					url: baseUrl + "/widgets/" + encodeURI(widgetId)
+					url: getWidgetsUrl(widgetId),
+					headers: getHeaders()
 				});
 			},
 			getAll: function() {
 				return $http({
 					method: "GET",
-					url: baseUrl + "/widgets"
+					url: getWidgetsUrl(),
+					headers: getHeaders()
 				});
 			}
 		};

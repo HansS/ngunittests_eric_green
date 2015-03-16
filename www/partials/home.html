@@ -7,7 +7,7 @@
 			<th>Color</th>
 			<th>Size</th>
 			<th>Quantity</th>
-			<th colspan='3'>Action</th>
+			<th colspan="3">Action</th>
 		</tr>
 		<tr ng-repeat="widget in widgets">
 			<td>{{widget.name}}</td>
@@ -15,10 +15,10 @@
 			<td>{{widget.color}}</td>
 			<td>{{widget.size}}</td>
 			<td>{{widget.quantity}}</td>
-			<td><a ng-href='#/view/{{widget.id}}'>View</a></td>
-			<td><a ng-href='#/edit/{{widget.id}}'>Edit</a></td>
+			<td><a ui-sref="view({widgetId: widget.id})">View</a></td>
+			<td><a ui-sref="edit({widgetId: widget.id})">Edit</a></td>
 			<td><a ng-click="deleteWidget(widget.id)">Delete</a></td>
 		</tr>
 	</table>
-	<a href='#/create'>Create Widget</a>
+	<a ui-sref="create">Create Widget</a>
 </div>
